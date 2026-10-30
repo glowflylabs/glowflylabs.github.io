@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlowFly Labs | Small lights. Big change.</title>
+<meta name="description" content="GlowFly Labs builds simple AI tools for everyday life in Sri Lanka. Aloud, Gist and Slot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='28' fill='%230F1B33'/%3E%3Cpath d='M85.5 34.5 A36 36 0 1 0 96 60 L66 60' stroke='white' stroke-width='12' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='94' cy='45' r='7' fill='%23F5B841'/%3E%3C/svg%3E">
+<style>
+:root{
+  color-scheme: light;
+  --navy:#0F1B33;
+  --navy-2:#18264A;
+  --amber:#F5B841;
+  --bg:#FFFFFF;
+  --bg-soft:#F2F4F8;
+  --text:#0F1B33;
+  --muted:#4A5568;
+  --line:#DCE1EA;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --bg:#0B1428;
+    --bg-soft:#111D38;
+    --text:#F1F4F9;
+    --muted:#B6C0D2;
+    --line:#24345A;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Outfit','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:18px;line-height:1.6}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#FFFFFF;font-weight:600;font-size:22px}
+.brand svg{width:40px;height:40px}
+.nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
+.nav ul a{color:#D6DDEA;text-decoration:none;font-size:16px}
+.nav ul a:hover{color:#FFFFFF}
+
+/* Hero */
+.hero{position:relative;background:var(--navy);color:#FFFFFF;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.flies{position:absolute;inset:0;pointer-events:none}
+.fly{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px 4px rgba(245,184,65,.45);opacity:.85;animation:drift 9s ease-in-out infinite, blink 4s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-22px)}}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:.95}}
+.hero-inner{position:relative;padding:140px 0 100px}
+.wordmark{font-size:clamp(64px,13vw,168px);font-weight:600;line-height:.95;letter-spacing:-.02em;margin:0;white-space:nowrap}
+.wordmark .o{display:inline-block;width:.5em;height:.5em;border-radius:50%;background:var(--amber);box-shadow:0 0 .18em .06em rgba(245,184,65,.55),0 0 .5em .2em rgba(245,184,65,.18);margin:0 .02em;vertical-align:0}
+.labs{font-size:clamp(14px,1.6vw,20px);letter-spacing:.6em;color:var(--amber);font-weight:600;margin:14px 0 0 6px}
+.hero p.lead{font-size:clamp(22px,2.6vw,30px);max-width:620px;margin:48px 0 0;color:#E2E8F0;line-height:1.35}
+.hero .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;font-weight:500;text-decoration:none;font-size:17px}
+.btn-primary{background:var(--amber);color:var(--navy)}
+.btn-primary:hover{background:#FFC95C}
+.btn-ghost{border:1.5px solid #5B6B8C;color:#FFFFFF}
+.btn-ghost:hover{border-color:#FFFFFF}
+
+/* Sections */
+section{padding:110px 0}
+h2{font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 20px;font-weight:600;letter-spacing:-.01em}
+.intro{max-width:640px;color:var(--muted);margin:0}
+
+/* Products */
+.products{display:flex;flex-direction:column;margin-top:56px;border-top:1px solid var(--line)}
+.product{display:grid;grid-template-columns:220px 1fr 220px;gap:32px;align-items:start;padding:40px 0;border-bottom:1px solid var(--line)}
+.product h3{font-size:36px;margin:0;font-weight:600;line-height:1.1}
+.product p{margin:0;color:var(--muted);max-width:520px}
+.product .for{display:block;color:var(--text);font-weight:500;margin-bottom:6px}
+.status{font-size:16px;display:flex;align-items:center;gap:10px;justify-self:end}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line);flex:none}
+.dot.live{background:var(--amber);box-shadow:0 0 10px 3px rgba(245,184,65,.5)}
+.status a{font-weight:500}
+
+/* Story */
+.story{background:var(--bg-soft)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.story p{margin:0 0 18px;color:var(--muted)}
+.quote{font-size:clamp(28px,3.4vw,42px);line-height:1.2;font-weight:500;margin:0}
+
+/* Contact */
+.contact{text-align:left}
+.contact .btn-primary{margin-top:28px}
+
+footer{background:var(--navy);color:#B6C0D2;padding:40px 0;font-size:15px}
+.foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer a{color:#FFFFFF}
+
+@media (max-width:820px){
+  .nav ul{display:none}
+  .product{grid-template-columns:1fr;gap:12px}
+  .status{justify-self:start}
+  .story-grid{grid-template-columns:1fr;gap:32px}
+  section{padding:80px 0}
+}
+@media (prefers-reduced-motion: reduce){
+  .fly{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="GlowFly Labs home">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="28" fill="#18264A"/><path d="M85.5 34.5 A36 36 0 1 0 96 60 L66 60" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/><circle cx="94" cy="45" r="13" fill="#F5B841" opacity=".25"/><circle cx="94" cy="45" r="6.5" fill="#F5B841"/></svg>
+      GlowFly Labs
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="flies" aria-hidden="true">
+      <span class="fly" style="top:18%;left:8%;animation-delay:0s,.4s"></span>
+      <span class="fly" style="top:30%;left:72%;animation-delay:-2s,1.2s"></span>
+      <span class="fly" style="top:64%;left:84%;animation-delay:-4s,2s;width:6px;height:6px"></span>
+      <span class="fly" style="top:78%;left:22%;animation-delay:-1s,.8s;width:5px;height:5px"></span>
+      <span class="fly" style="top:12%;left:52%;animation-delay:-6s,2.6s;width:5px;height:5px"></span>
+      <span class="fly" style="top:48%;left:92%;animation-delay:-3s,1.6s"></span>
+      <span class="fly" style="top:86%;left:60%;animation-delay:-5s,3s;width:6px;height:6px"></span>
+    </div>
+    <div class="wrap hero-inner">
+      <h1 class="wordmark" aria-label="GlowFly">Gl<span class="o" aria-hidden="true"></span>wFly</h1>
+      <div class="labs">LABS</div>
+      <p class="lead">Small lights. Big change. We build simple AI tools that make everyday life easier for people in Sri Lanka.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#products">See our products</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <h2>What we are building</h2>
+      <p class="intro">Each tool solves one real problem. In Sinhala, Tamil and English.</p>
+
+      <div class="products">
+        <article class="product">
+          <h3>Aloud</h3>
+          <p><span class="for">For parents and grandparents</span>Take a photo of a letter, a medicine box or a bill. Aloud reads it out in Sinhala, Tamil or English.</p>
+          <div class="status"><span class="dot"></span>Coming soon on Google Play</div>
+        </article>
+        <article class="product">
+          <h3>Gist</h3>
+          <p><span class="for">For anyone reading English online</span>Select any text on a website. Gist explains it in simple Sinhala, Tamil or English, and can read it aloud.</p>
+          <div class="status"><span class="dot"></span>In development</div>
+        </article>
+        <article class="product">
+          <h3>Slot</h3>
+          <p><span class="for">For university students</span>Turn your timetable into a Google Calendar in seconds. Never miss a lecture again.</p>
+          <div class="status"><span class="dot live"></span><a href="https://slot-timetable.streamlit.app">Try it free</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="story">
+    <div class="wrap story-grid">
+      <p class="quote">A firefly is small. But in the dark, it lights the way.</p>
+      <div>
+        <p>Many people in Sri Lanka struggle with English letters, medicine labels and bills. Others lose hours on small daily tasks.</p>
+        <p>We think technology should help with these things. Not in a big, complex way. In a small, simple way that just works.</p>
+        <p>That is why we are called GlowFly. Each tool we build is one small light.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Say hello</h2>
+      <p class="intro">Want to try our tools early, work with us, or share an idea? We would love to hear from you.</p>
+      <a class="btn btn-primary" href="mailto:glowflylabs@gmail.com">Email us</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 GlowFly Labs. Sri Lanka.</span>
+    <a href="https://www.linkedin.com/company/glowfly-labs">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
